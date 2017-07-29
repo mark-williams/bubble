@@ -1,0 +1,42 @@
+{
+  "extends": "airbnb",
+  // I want to use babel-eslint for parsing!
+  "parser": "babel-eslint",
+  "env": {
+    // I write for browser
+    "browser": true,
+    // in CommonJS
+    "node": true,
+    "jest": true
+  },
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import"
+  ],
+  // To give you an idea how to override rule options:
+  "rules": {
+    //"quotes": [2, "single"],
+    //"eol-last": [2],
+    //"no-mixed-requires": [0],
+    //"no-underscore-dangle": [0],
+
+    // React-specific
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/forbid-prop-types": [1, { "forbid": ["any"] }],
+    "react/require-default-props": [0], 
+    "jsx-a11y/no-static-element-interactions": [
+        "warn",
+        {
+          "handlers": [
+            "onClick",
+            "onMouseDown",
+            "onMouseUp",
+            "onKeyPress",
+            "onKeyDown",
+            "onKeyUp"
+          ]
+        }
+      ]
+  }
+}
