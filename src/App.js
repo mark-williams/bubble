@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import SortContainer from './components/SortContainer';
 
-const unsorted = [8, 4, 3, 7, 9, 2, 8, 3];
+const unsorted = [8, 4, 23, 17, 9, 2, 16, 212, 78, 3, 19, 44, 2];
 
 const App = () => (
   <div className="App">

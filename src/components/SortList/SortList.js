@@ -4,12 +4,12 @@ import SortItem from '../SortItem';
 
 const SortList = ({ list }) => (
   <div className="sortList">
-    {list.map(n => <SortItem item={n} />)}
+    {list.map((n, i) => <SortItem key={i} item={n} />)}
   </div>
 );
 
 SortList.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.object),
+  list: PropTypes.arrayOf(PropTypes.number),
 };
 
 export default SortList;
