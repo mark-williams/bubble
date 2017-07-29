@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SortItem from '../SortItem';
 
 const SortList = ({ list }) => (
   <div className="sortList">
-    {list.map(n => <div className="sortItem">{n}</div>)}
+    {list.map(n => <SortItem item={n} />)}
   </div>
 );
 
