@@ -2,10 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SortList from '../SortList';
 
+const getItems = (numbers) => {
+  return numbers.map((n, i) => {
+    return { id: i, number: n };
+  });
+};
+
 class SortContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items: this.props.numbersToSort, sorted: false };
+    this.state = { items: getItems(this.props.numbersToSort), sorted: false };
   }
 
   componentDidMount() {
@@ -17,7 +23,7 @@ class SortContainer extends React.Component {
     const items = this.state.items.slice();
     let amended = false;
     for (let i = 1; i < items.length; i += 1) {
-      if (items[i] < items[i - 1]) {
+      if (items[i].number < items[i - 1].number) {
         const temp = items[i - 1];
         items[i - 1] = items[i];
         items[i] = temp;
