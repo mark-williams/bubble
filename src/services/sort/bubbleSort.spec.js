@@ -1,5 +1,5 @@
-import { bubble, sort } from './bubbleSort';
 import deepFreeze from 'deep-freeze';
+import { bubble, sort } from './bubbleSort';
 
 const compare = (a, b) => a > b;
 

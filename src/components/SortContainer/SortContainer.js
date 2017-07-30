@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SortList from '../SortList';
+import bubble from '../../services/sort';
 
-const getItems = (numbers) => {
-  return numbers.map((n, i) => {
-    return { id: i, number: n };
-  });
-};
+const getItems = numbers => numbers.map((n, i) => ({ id: i, number: n }));
+
+const comparer = (a, b) => a.number > b.number;
 
 class SortContainer extends React.Component {
   constructor(props) {
@@ -16,26 +15,17 @@ class SortContainer extends React.Component {
 
   componentDidMount() {
     this.sorted = false;
-    this.interval = setInterval(this.bubbleSort, 1000);
+    this.interval = setInterval(this.sort, 300);
   }
 
-  bubbleSort = () => {
+  sort = () => {
     const items = this.state.items.slice();
-    let amended = false;
-    for (let i = 1; i < items.length; i += 1) {
-      if (items[i].number < items[i - 1].number) {
-        const temp = items[i - 1];
-        items[i - 1] = items[i];
-        items[i] = temp;
-        amended = true;
-      }
-    }
-
-    if (!amended) {
+    const results = bubble(items, comparer);
+    if (results.sorted) {
       clearInterval(this.interval);
     }
 
-    this.setState({ items, sorted: !amended });
+    this.setState(results);
   }
 
   render() {

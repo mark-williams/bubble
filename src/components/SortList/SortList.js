@@ -4,7 +4,7 @@ import SortItem from '../SortItem';
 
 const SortList = ({ list }) => (
   <div className="sortList">
-    {list.map((n) => <SortItem key={n.id} item={n.number} />)}
+    {list.map(x => (<SortItem key={x.id} item={x.number} />))}
   </div>
 );
 
