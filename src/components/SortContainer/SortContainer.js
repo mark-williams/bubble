@@ -15,7 +15,7 @@ class SortContainer extends React.Component {
 
   componentDidMount() {
     this.sorted = false;
-    this.interval = setInterval(this.sort, 300);
+    this.interval = setInterval(this.sort, 200);
   }
 
   sort = () => {

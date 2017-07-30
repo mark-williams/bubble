@@ -3,7 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 import SortContainer from './components/SortContainer';
 
-const unsorted = [8, 4, 23, 17, 9, 2, 16, 212, 78, 3, 19, 44, 2];
+const generateNumberArray = (numberOfItems) => {
+  const list = [];
+  let count = numberOfItems;
+  while (count) {
+    const num = Math.floor(Math.random() * 1000);
+    list.push(num);
+    count -= 1;
+  }
+
+  return list;
+};
+
+const unsorted = generateNumberArray(100);
 
 const App = () => (
   <div className="App">
