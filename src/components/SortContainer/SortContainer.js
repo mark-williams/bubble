@@ -31,7 +31,7 @@ class SortContainer extends React.Component {
   render() {
     return (
       <div>
-        <h3>{ this.state.sorted ? <span>Sorted!</span> : <span>Sorting...</span>}</h3>
+        <h3 className="sort-status">{ this.state.sorted ? <span>Sorted!</span> : <span>Sorting...</span>}</h3>
         <SortList list={this.state.items} />
       </div>
     );
