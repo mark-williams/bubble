@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortList snapshot 1`] = `
+<div
+  className="sortList"
+>
+  <div
+    className="sortItem"
+    style={
+      Object {
+        "backgroundColor": "hsl(340, 40%, 50%)",
+      }
+    }
+  >
+    71
+  </div>
+</div>
+`;
