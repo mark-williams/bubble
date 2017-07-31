@@ -27,12 +27,20 @@ describe('SortContainer', () => {
   });
 
   describe('sort list', () => {
-    it('renders SortList component', () => {
+    it('renders SortList component passing correct props', () => {
+      const testList = [2, 1];
+      const expectedProps = {
+        list: [
+          { id: 0, number: 2 },
+          { id: 1, number: 1 },
+        ],
+      };
       const wrapper = shallow(
-        <SortContainer numbersToSort={[3, 2, 1]} />,
+        <SortContainer numbersToSort={testList} />,
       );
 
       expect(wrapper.children().at(1).type()).toBe(SortList);
+      expect(wrapper.children().at(1).props()).toEqual(expectedProps);
     });
   });
 });
