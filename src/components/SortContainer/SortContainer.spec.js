@@ -1,6 +1,7 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import SortContainer from './SortContainer';
+import SortList from '../SortList';
 
 describe('SortContainer', () => {
   jest.useFakeTimers();
@@ -22,6 +23,16 @@ describe('SortContainer', () => {
       // Set state to'sorted'
       wrapper.setState({ sorted: true });
       expect(wrapper.find('.sort-status').text()).toBe('Sorted!');
+    });
+  });
+
+  describe('sort list', () => {
+    it('renders SortList component', () => {
+      const wrapper = shallow(
+        <SortContainer numbersToSort={[3, 2, 1]} />,
+      );
+
+      expect(wrapper.children().at(1).type()).toBe(SortList);
     });
   });
 });
