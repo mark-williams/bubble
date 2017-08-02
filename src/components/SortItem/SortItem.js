@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const getItemBackgroundColour = (n) => {
+const getItemBackgroundColor = (n) => {
   const color = (n * 20) % 360;
   return `hsl(${color}, 40%, 50%)`;
 };
@@ -13,7 +13,7 @@ const StyledItem = styled.div`
   text-align: center;
   padding: 0.8em 1em;
   margin: 0.1em;
-  background-color: ${props => getItemBackgroundColour(props.item)};
+  background-color: ${props => getItemBackgroundColor(props.item)};
   color: #fff;
 `;
 
