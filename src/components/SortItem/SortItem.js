@@ -1,15 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const getItemStyle = (item) => {
-  const color = (item * 20) % 360;
-  return {
-    backgroundColor: `hsl(${color}, 40%, 50%)`,
-  };
+const getItemBackgroundColour = (n) => {
+  const color = (n * 20) % 360;
+  return `hsl(${color}, 40%, 50%)`;
 };
 
-const SortItem = ({ item }) => (
-  <div className="sortItem" style={getItemStyle(item)}>{item}</div>
+const StyledItem = styled.div`
+ width: 50px;
+  border: solid 1px #222;
+  text-align: center;
+  padding: 0.8em 1em;
+  margin: 0.1em;
+  background-color: ${props => getItemBackgroundColour(props.item)};
+  color: #fff;
+`;
+
+const SortItem = props => (
+  <StyledItem {...props}>{props.item}</StyledItem>
 );
 
 SortItem.propTypes = {
