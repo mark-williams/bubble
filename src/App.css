@@ -27,8 +27,3 @@
   width: 62%;
   margin: 2em auto;
 }
-
-.sortList {
-  display: flex;
-  flex-wrap: wrap;
-}
