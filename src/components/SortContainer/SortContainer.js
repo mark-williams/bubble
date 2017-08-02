@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import SortList from '../SortList';
 import bubble from '../../services/sort';
 
 const getItems = numbers => numbers.map((n, i) => ({ id: i, number: n }));
-
 const comparer = (a, b) => a.number > b.number;
+
+const Status = styled.h3`
+  color: #333;
+  font-style: ${props => (props.isSorted ? 'italic' : 'normal')};
+`;
 
 class SortContainer extends React.Component {
   constructor(props) {
@@ -15,7 +20,7 @@ class SortContainer extends React.Component {
 
   componentDidMount() {
     this.sorted = false;
-    this.interval = setInterval(this.sort, 200);
+    this.interval = setInterval(this.sort, 180);
   }
 
   sort = () => {
@@ -29,9 +34,10 @@ class SortContainer extends React.Component {
   }
 
   render() {
+    const message = this.state.sorted ? <span>Sorted!</span> : <span>Sorting...</span>;
     return (
       <div>
-        <h3 className="sort-status">{ this.state.sorted ? <span>Sorted!</span> : <span>Sorting...</span>}</h3>
+        <Status isSorted={this.state.sorted} className="sort-status">{message}</Status>
         <SortList list={this.state.items} />
       </div>
     );

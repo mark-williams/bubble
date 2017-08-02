@@ -2,12 +2,7 @@
 
 exports[`SortItem snapshot 1`] = `
 <div
-  className="sortItem"
-  style={
-    Object {
-      "backgroundColor": "hsl(180, 40%, 50%)",
-    }
-  }
+  className="sc-bdVaJa jDeIRx"
 >
   171
 </div>

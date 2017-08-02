@@ -2,15 +2,10 @@
 
 exports[`SortList snapshot 1`] = `
 <div
-  className="sortList"
+  className="sc-bwzfXH icOaIC"
 >
   <div
-    className="sortItem"
-    style={
-      Object {
-        "backgroundColor": "hsl(340, 40%, 50%)",
-      }
-    }
+    className="sc-bdVaJa cHazHO"
   >
     71
   </div>
