@@ -32,13 +32,3 @@
   display: flex;
   flex-wrap: wrap;
 }
-
-.sortItem {
-  width: 50px;
-  border: solid 1px #222;
-  text-align: center;
-  padding: 0.8em 1em;
-  margin: 0.1em;
-  background-color: hsl(0, 40%, 50%);
-  color: #fff;
-}
