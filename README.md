@@ -48,3 +48,65 @@ According to the creator of styled components, Max Stoiber:
 > The basic idea of styled-components is to enforce best practices by removing the mapping between styles and components.
 
 This seems strange at first, as CSS is there to _decouple_ styling and markup, but in practice this can become unwieldly and confused. 
+
+
+### Recompose
+I've created a separate branch to investigate using _recompose_ to turn _SortContainer_ into a stateless component. This necessitated managing its state externally and as the sort is triggered by a series of timed events I decided to use _with _withReducer_ from the _recompose_ library. 
+
+The main changes are:
+
+```javascript
+const INITIAL = {
+  items: [],
+  sorted: false,
+};
+
+const INIT = 'INIT';
+const SORT = 'SORT';
+
+const sortedReducer = (state = INITIAL, action) => {
+  switch (action.type) {
+    case INIT:
+      return Object.assign({}, state, { items: getItems(action.items) });
+
+    case SORT:
+      return bubble(state.items.slice(), comparer);
+
+    default:
+      return state;
+  }
+};
+
+const sortingViaReducer = withReducer('sortState', 'dispatch', sortedReducer);
+const sortOnTimer = lifecycle({
+  componentWillMount() {
+    this.props.dispatch({ type: INIT, items: this.props.numbersToSort });
+  },
+  componentDidMount() {
+    setInterval(() => {
+      this.props.dispatch({ type: SORT });
+    },
+    100);
+  },
+});
+
+const SortContainer = ({ sortState }) => {
+  const message = sortState.sorted ? 'Sorted!' : 'Sorting...';
+  return (
+    <div>
+      <Status className="sort-status">{message}</Status>
+      <SortList className="sort-list" list={sortState.items} />
+    </div>
+  );
+};
+
+SortContainer.propTypes = {
+  sortState: PropTypes.object,
+};
+
+export default compose(sortingViaReducer, sortOnTimer)(SortContainer);
+```
+
+I'm quite a fan of _recompose_ and have used it fairly extensively in my day job, however as in this case the original, stateful, component was relatively simple I've retained it in the _master_ branch; the code above is in the _feature/recompose_ branch.
+
+
