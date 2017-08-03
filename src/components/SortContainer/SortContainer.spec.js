@@ -21,26 +21,8 @@ describe('SortContainer', () => {
       );
 
       // Set state to'sorted'
-      wrapper.setState({ sorted: true });
+      jest.runTimersToTime(10000);
       expect(wrapper.find('.sort-status').text()).toBe('Sorted!');
-    });
-  });
-
-  describe('sort list', () => {
-    it('renders SortList component passing correct props', () => {
-      const testList = [2, 1];
-      const expectedProps = {
-        list: [
-          { id: 0, number: 2 },
-          { id: 1, number: 1 },
-        ],
-      };
-      const wrapper = shallow(
-        <SortContainer numbersToSort={testList} />,
-      );
-
-      expect(wrapper.children().at(1).type()).toBe(SortList);
-      expect(wrapper.children().at(1).props()).toEqual(expectedProps);
     });
   });
 });

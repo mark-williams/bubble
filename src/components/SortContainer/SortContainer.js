@@ -48,11 +48,11 @@ const Timed = lifecycle({
 });
 
 const SortContainer = ({ sortState }) => {
-  const message = sortState.sorted ? 'Sorted' : 'Sorting...';
+  const message = sortState.sorted ? 'Sorted!' : 'Sorting...';
   return (
     <div>
       <Status className="sort-status">{message}</Status>
-      <SortList list={sortState.items} />
+      <SortList className="sort-list" list={sortState.items} />
     </div>
   );
 };
