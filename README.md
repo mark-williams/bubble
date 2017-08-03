@@ -51,7 +51,7 @@ This seems strange at first, as CSS is there to _decouple_ styling and markup, b
 
 
 ### Recompose
-I've created a separate branch to investigate using _recompose_ to turn _SortContainer_ into a stateless component. This necessitated managing its state externally and as the sort is triggered by a series of timed events I decided to use _with _withReducer_ from the _recompose_ library. 
+I've created a separate branch to investigate using [_recompose_](https://github.com/acdlite/recompose) to turn _SortContainer_ into a stateless component. This necessitated managing its state externally and as the sort is triggered by a series of timed events I decided to use _withReducer_ from the _recompose_ library. 
 
 The main changes are:
 
