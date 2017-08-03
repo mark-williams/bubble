@@ -1,4 +1,4 @@
-# Bubbles
+# Bubble
 
 Just a tiny little application that will show a bubble sort in progress. Its real use will be a playground for, initially, _styled components_.
 
