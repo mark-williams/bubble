@@ -1,7 +1,6 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import SortContainer from './SortContainer';
-import SortList from '../SortList';
 
 describe('SortContainer', () => {
   jest.useFakeTimers();

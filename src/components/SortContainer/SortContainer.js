@@ -34,15 +34,15 @@ const sortedReducer = (state = INITIAL, action) => {
   }
 };
 
-const FlagSorted = withReducer('sortState', 'dispatch', sortedReducer);
-const Timed = lifecycle({
+const sortingViaReducer = withReducer('sortState', 'dispatch', sortedReducer);
+const sortOnTimer = lifecycle({
   componentWillMount() {
     this.props.dispatch({ type: INIT, items: this.props.numbersToSort });
   },
   componentDidMount() {
     setInterval(() => {
       this.props.dispatch({ type: SORT });
-    }, 
+    },
     100);
   },
 });
@@ -61,4 +61,4 @@ SortContainer.propTypes = {
   sortState: PropTypes.object,
 };
 
-export default compose(FlagSorted, Timed)(SortContainer);
+export default compose(sortingViaReducer, sortOnTimer)(SortContainer);
