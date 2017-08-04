@@ -44,7 +44,7 @@ const sortOnTimer = lifecycle({
       if (this.props.sortState.sorted) {
         clearInterval(this.intervalId);
       } else {
-        this.props.dispatch({ type: SORT, intervalId: this.intervalId });
+        this.props.dispatch({ type: SORT });
       }
     },
     100);
